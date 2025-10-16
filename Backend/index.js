@@ -9,7 +9,15 @@ import userRouter from "./Routes/userRouter.js";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    allowedOrigin: [
+      "http://localhost:5173",
+      "https://turf-mate-front-end.vercel.app",
+    ],
+  })
+);
 app.use(express.json());
 dotenv.config();
 
